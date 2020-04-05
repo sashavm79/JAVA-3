@@ -53,5 +53,6 @@ class Stats<T extends Object> {
                 System.out.print(iStas.getMus()[i]);
 
 
+
         }
     }
