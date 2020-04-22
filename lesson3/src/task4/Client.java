@@ -5,37 +5,37 @@ import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) throws InterruptedException {
-//        try(Socket socket = new Socket("localhost", 3345);
-//            BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
-//            ObjectOutputStream objOut = new ObjectOutputStream(socket.getOutputStream());
-//            ObjectInputStream objIn = new ObjectInputStream(socket.getInputStream());) {
-//
-//            System.out.println("Соединение установлено");
-//
-//            while(!socket.isOutputShutdown()) {
-//                System.out.println("Какого кота хотите отправить на сервер? Для выхода запустите кота quit");
-//                String catName = br.readLine();
-//                Cat cat = new Cat(catName);
-//
-//                objOut.writeObject(cat);
-//                System.out.println("Кот до сериализации: " + cat);
-//
-//                if(cat.name.equals("quit")){
-//                    System.out.println("Кот quit закрывает соединение");
-//                    Thread.sleep(2000);
-//                    break;
-//                }
-//
-//                Cat catComeback = (Cat) objIn.readObject();
-//                System.out.println("Вернувшийся кот: " + catComeback);
-//            }
-//            System.out.println("Соединение закрыто");
-//
-//        } catch (IOException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+        try(Socket socket = new Socket("localhost", 3345);
+            BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+            ObjectOutputStream objOut = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream objIn = new ObjectInputStream(socket.getInputStream());) {
+
+            System.out.println("Соединение установлено");
+
+            while(!socket.isOutputShutdown()) {
+                System.out.println("Какого кота хотите отправить на сервер? Для выхода запустите кота quit");
+                String catName = br.readLine();
+                Cat cat = new Cat(catName);
+
+                objOut.writeObject(cat);
+                System.out.println("Кот до сериализации: " + cat);
+
+                if(cat.name.equals("quit")){
+                    System.out.println("Кот quit закрывает соединение");
+                    Thread.sleep(2000);
+                    break;
+                }
+
+                Cat catComeback = (Cat) objIn.readObject();
+                System.out.println("Вернувшийся кот: " + catComeback);
+            }
+            System.out.println("Соединение закрыто");
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 //        try(Socket socket = new Socket("localhost", 3345);
 //            BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
